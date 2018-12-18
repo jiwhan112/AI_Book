@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/GameAI/1.Scene/2.Math.unity
+- path: Assets/GameAI/1.Scene/3.MinerGame.unity
   isLoaded: 1
   isActive: 1
