@@ -24,10 +24,16 @@ public class StateHome : StateSuper<Miner>
     public override void Execute(Miner t)
     {
         t.Recovery();
+        if (t.AllRecovery())
+            t.GetStateMachine().ChangeState(StateWork.Instance());
 
     }
 
     public override void Exit(Miner t)
     {
+    }
+    public override bool OnMessage(Miner t, MAGADATA.Telegram tel)
+    {
+        return false;
     }
 }

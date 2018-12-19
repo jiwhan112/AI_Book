@@ -8,7 +8,7 @@ public class StateMachine<T>
     T mEntity;
     StateSuper<T> mCurrentState;
     StateSuper<T> mPrevState;
-    StateSuper<T> mGlobalState;
+    StateSuper<T> mGlobalState; // FSM이 갱신될때마다 호출
 
     public StateMachine(T mEntity)
     {
@@ -41,7 +41,7 @@ public class StateMachine<T>
         if (mCurrentState != null) mCurrentState.Execute(mEntity);
     }
     // Change
-    void ChangeState(StateSuper<T> newState)
+    public void ChangeState(StateSuper<T> newState)
     {
         if (newState == null) return;
         if (mCurrentState != null)
@@ -63,5 +63,21 @@ public class StateMachine<T>
 
     public bool isSameState(StateSuper<T> state) { return (mCurrentState == state) ? true : false; }
 
+    // 현재 메시지를 처리 할 수 없으면 전역 엔티티로 변경되서 메시지를 처리함
+    public bool HandleMessage(MAGADATA.Telegram msg)
+    {
+        /// 현재상태에서 처리가능한지 체크
+        if (mCurrentState!=null && mCurrentState.OnMessage(mEntity, msg))
+        {
+            return true;
+        }
+
+        /// 전역 상태의 메시지로 넘겨 처리
+        if (mGlobalState != null && mGlobalState.OnMessage(mEntity, msg))
+        {
+            return true;
+        }
+        return false;
+    }
 
 }

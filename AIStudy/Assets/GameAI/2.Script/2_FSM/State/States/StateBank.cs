@@ -24,10 +24,16 @@ public class StateBank : StateSuper<Miner>
     public override void Execute(Miner t)
     {
         t.SavingMoney();
+        t.GetStateMachine().ChangeState(StateWork.Instance());
 
     }
 
     public override void Exit(Miner t)
     {
+    }
+
+    public override bool OnMessage(Miner t, MAGADATA.Telegram tel)
+    {
+        return false;
     }
 }

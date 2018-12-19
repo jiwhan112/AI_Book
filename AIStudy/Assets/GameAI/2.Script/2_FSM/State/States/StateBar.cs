@@ -23,11 +23,20 @@ public class StateBar : StateSuper<Miner>
 
     public override void Execute(Miner t)
     {
-        t.GoBar();
-        t.PayBar();
+
+        if (t.PayBar())
+            t.GoBar();
+        else
+            t.GetStateMachine().ChangeState(StateBank.Instance());
+        if(t.FullThirsty()) t.GetStateMachine().ChangeState(StateWork.Instance());
+
     }
 
     public override void Exit(Miner t)
     {
+    }
+    public override bool OnMessage(Miner t, MAGADATA.Telegram tel)
+    {
+        return false;
     }
 }

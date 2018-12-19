@@ -238,10 +238,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GameAI\2.Script\0.Common\MAGADATA.cs" />
     <Compile Include="Assets\GameAI\2.Script\1.Math\Acceleration.cs" />
     <Compile Include="Assets\GameAI\2.Script\1.Math\DotCode.cs" />
-    <Compile Include="Assets\GameAI\2.Script\2_FSM\Entity\BaseGameEntity.cs" />
-    <Compile Include="Assets\GameAI\2.Script\2_FSM\Entity\MAGADATA.cs" />
+    <Compile Include="Assets\GameAI\2.Script\2_FSM\Entity\FSMBaseGameEntity.cs" />
     <Compile Include="Assets\GameAI\2.Script\2_FSM\Entity\Miner.cs" />
     <Compile Include="Assets\GameAI\2.Script\2_FSM\MinerGameManager.cs" />
     <Compile Include="Assets\GameAI\2.Script\2_FSM\State\StateMachine.cs" />
@@ -250,8 +250,14 @@
     <Compile Include="Assets\GameAI\2.Script\2_FSM\State\States\StateGlobal.cs" />
     <Compile Include="Assets\GameAI\2.Script\2_FSM\State\States\StateHome.cs" />
     <Compile Include="Assets\GameAI\2.Script\2_FSM\State\States\StateWork.cs" />
+    <Compile Include="Assets\GameAI\2.Script\2_FSM\State\States\Telegram\MessageDispatcher.cs" />
     <Compile Include="Assets\GameAI\2.Script\2_FSM\State\StateSuper.cs" />
+    <Compile Include="Assets\GameAI\2.Script\3_AutonomousAgent\BaseEntity\BaseGameEntity.cs" />
+    <Compile Include="Assets\GameAI\2.Script\3_AutonomousAgent\BaseEntity\MoveGameEntity.cs" />
     <Compile Include="Assets\Singleton.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\GameAI\2.Script\2_FSM\진행상황.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

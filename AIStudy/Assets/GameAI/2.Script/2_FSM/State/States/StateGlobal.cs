@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// 단순욕구 
+
 public class StateGlobal : StateSuper<Miner>
 {
 
@@ -22,10 +24,16 @@ public class StateGlobal : StateSuper<Miner>
 
     public override void Execute(Miner t)
     {
-
+        if (t.ThrstyToBar()) t.GetStateMachine().ChangeState(StateBar.Instance());
+        if (t.TiredtoHome()) t.GetStateMachine().ChangeState(StateHome.Instance());
     }
 
     public override void Exit(Miner t)
     {
+    }
+
+    public override bool OnMessage(Miner t, MAGADATA.Telegram tel)
+    {
+        return false;
     }
 }

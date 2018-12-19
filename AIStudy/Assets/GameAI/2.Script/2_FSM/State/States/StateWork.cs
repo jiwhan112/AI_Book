@@ -24,11 +24,15 @@ public class StateWork : StateSuper<Miner>
     {
         t.Tired();
         t.MakeGold();
+        if (t.FullGold()) t.GetStateMachine().ChangeState(StateBank.Instance());
 
     }
 
     public override void Exit(Miner t)
     {
     }
-
+    public override bool OnMessage(Miner t, MAGADATA.Telegram tel)
+    {
+        return false;
+    }
 }

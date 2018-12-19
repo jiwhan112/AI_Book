@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseGameEntity : MonoBehaviour {
-
+public abstract class FSMBaseGameEntity : MonoBehaviour {
+    [SerializeField]
     int iID;
     static int iNextValidID;
 
-    public BaseGameEntity(int ID)
-    {
-        SetID(ID);
-    }
 
+    public virtual void INIT(int id)
+    {
+        SetID(id);
+    }
     public virtual void EntityUpdate()
     { }
     
@@ -22,4 +22,5 @@ public class BaseGameEntity : MonoBehaviour {
     }
     public int GetID(){return  iID;}
 
+    public abstract bool HandleMessage(MAGADATA.Telegram msg);
 }
