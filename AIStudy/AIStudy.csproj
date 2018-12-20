@@ -254,7 +254,11 @@
     <Compile Include="Assets\GameAI\2.Script\2_FSM\State\StateSuper.cs" />
     <Compile Include="Assets\GameAI\2.Script\3_AutonomousAgent\BaseEntity\BaseGameEntity.cs" />
     <Compile Include="Assets\GameAI\2.Script\3_AutonomousAgent\BaseEntity\MoveGameEntity.cs" />
+    <Compile Include="Assets\GameAI\2.Script\3_AutonomousAgent\BaseEntity\Vehicle.cs" />
+    <Compile Include="Assets\GameAI\2.Script\3_AutonomousAgent\MoveEntityManager.cs" />
+    <Compile Include="Assets\GameAI\2.Script\3_AutonomousAgent\SteeringBehavior.cs" />
     <Compile Include="Assets\Singleton.cs" />
+    <Compile Include="Assets\Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GameAI\2.Script\2_FSM\진행상황.txt" />

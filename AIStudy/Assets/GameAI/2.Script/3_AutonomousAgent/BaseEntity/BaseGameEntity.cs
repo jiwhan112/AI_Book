@@ -14,20 +14,20 @@ public class BaseGameEntity : MonoBehaviour {
     int NextValidID() { return NextID++; }
 
     public Vector2 mPos;
-    public Vector3 mScale;
+    protected Vector3 mScale;
     // 반경 길이
     public double dBoundingRadius;
 
-    protected void Active()
+    public virtual void Active()
     {
         iID = NextValidID();
         eEntityType = MAGADATA.EntityType.Default;
         mScale = Vector3.one;
         mPos = Vector2.zero;
-        dBoundingRadius = 0.0f;
+        dBoundingRadius = 1.0f;
         bTag = false;
     }
-    protected void Active(MAGADATA.EntityType entity)
+    public virtual void Active(MAGADATA.EntityType entity)
     {
         iID = NextValidID();
         eEntityType = entity;
@@ -36,7 +36,7 @@ public class BaseGameEntity : MonoBehaviour {
         dBoundingRadius = 0.0f;
         bTag = false;
     }
-    protected void Active(MAGADATA.EntityType entity, Vector2 pos, double r)
+    public virtual void Active(MAGADATA.EntityType entity, Vector2 pos, double r)
     {
         iID = NextValidID();
         eEntityType = entity;
